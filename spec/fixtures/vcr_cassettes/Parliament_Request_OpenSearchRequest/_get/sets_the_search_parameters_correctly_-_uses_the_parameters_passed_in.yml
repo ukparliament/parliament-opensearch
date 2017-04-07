@@ -1,0 +1,230 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://parliament-search-api.azurewebsites.net/description
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/opensearchdescription+xml
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '336'
+      Content-Type:
+      - application/opensearchdescription+xml
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=5d8553c5aa5fa9d76298de9b2e7ab15aca50f8fe28897493fc6dca49d6a4ac57;Path=/;Domain=parliament-search-api.azurewebsites.net
+      Date:
+      - Fri, 07 Apr 2017 14:50:13 GMT
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\"?>\r\n<OpenSearchDescription xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">\r\n
+        \ <ShortName>os test</ShortName>\r\n  <Description>test for os</Description>\r\n
+        \ <Url template=\"http://parliament-search-api.azurewebsites.net/search?q={searchTerms}&amp;start={startPage?}\"
+        type=\"application/atom+xml\" />\r\n</OpenSearchDescription>"
+    http_version: 
+  recorded_at: Fri, 07 Apr 2017 14:50:49 GMT
+- request:
+    method: get
+    uri: http://parliament-search-api.azurewebsites.net/search?q=banana&start=20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/atom+xml
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '2047'
+      Content-Type:
+      - application/atom+xml
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/8.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=5d8553c5aa5fa9d76298de9b2e7ab15aca50f8fe28897493fc6dca49d6a4ac57;Path=/;Domain=parliament-search-api.azurewebsites.net
+      Date:
+      - Fri, 07 Apr 2017 14:50:13 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48ZmVlZCB4
+        bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwNS9BdG9tIj48dGl0bGUgdHlw
+        ZT0idGV4dCI+PC90aXRsZT48aWQ+dXVpZDo1NDU4MTQ2NC01MTIzLTQxYjEt
+        YjlkNS0zNGQyNTU5ZmM1MmI7aWQ9NDU0PC9pZD48dXBkYXRlZD4yMDE3LTA0
+        LTA3VDE0OjUwOjE1WjwvdXBkYXRlZD48YXV0aG9yPjxuYW1lPnBhcmxpYW1l
+        bnQudWs8L25hbWU+PC9hdXRob3I+PFF1ZXJ5IHJvbGU9InJlcXVlc3QiIHNl
+        YXJjaFRlcm1zPSJiYW5hbmEiIHhtbG5zPSJodHRwOi8vYTkuY29tLy0vc3Bl
+        Yy9vcGVuc2VhcmNoLzEuMS8iIC8+PHRvdGFsUmVzdWx0cyB4bWxucz0iaHR0
+        cDovL2E5LmNvbS8tL3NwZWMvb3BlbnNlYXJjaC8xLjEvIj4xODMwMDwvdG90
+        YWxSZXN1bHRzPjxzdGFydEluZGV4IHhtbG5zPSJodHRwOi8vYTkuY29tLy0v
+        c3BlYy9vcGVuc2VhcmNoLzEuMS8iPjIwPC9zdGFydEluZGV4PjxlbnRyeT48
+        aWQ+dXVpZDo1NDU4MTQ2NC01MTIzLTQxYjEtYjlkNS0zNGQyNTU5ZmM1MmI7
+        aWQ9NDU1PC9pZD48dGl0bGUgdHlwZT0iaHRtbCI+SG91c2Ugb2YgQ29tbW9u
+        cyBTdGFuZGluZyBDb21taXR0ZWUgKHB0IDIpPC90aXRsZT48c3VtbWFyeSB0
+        eXBlPSJodG1sIj5XaWxsIGhlIGV4cGxhaW4gaW4gZ3JlYXRlciBkZXRhaWwg
+        aG93IGhlIGFudGljaXBhdGVzIHRoYXQgaW5kaXZpZHVhbCBBQ1AgJmx0O2Jy
+        Jmd0Ow0KY291bnRyaWVzX21haW5seSBDYXJpYmJlYW4gcHJvZHVjZXJzX3dp
+        bGwgZXhwb3J0IHRoZWlyICZsdDtiJmd0O2JhbmFuYXMmbHQ7L2ImZ3Q7IHRv
+        IEV1cm9wZSBhbmQgJmx0O2JyJmd0Ow0KdGhlJmFtcDtuYnNwOy4uLjwvc3Vt
+        bWFyeT48dXBkYXRlZD4yMDE3LTA0LTA3VDE0OjUwOjE1WjwvdXBkYXRlZD48
+        bGluayByZWw9ImFsdGVybmF0ZSIgaHJlZj0iaHR0cDovL3d3dy5wdWJsaWNh
+        dGlvbnMucGFybGlhbWVudC51ay9wYS9jbTE5OTc5OC9jbXN0YW5kL2V1cm9h
+        L3N0OTgwMzI1LzgwMzI1czAyLmh0bSIgLz48L2VudHJ5PjxlbnRyeT48aWQ+
+        dXVpZDo1NDU4MTQ2NC01MTIzLTQxYjEtYjlkNS0zNGQyNTU5ZmM1MmI7aWQ9
+        NDU2PC9pZD48dGl0bGUgdHlwZT0iaHRtbCI+NDAuIHRhcmlmZiByYXRlcyBm
+        b3IgJmx0O2ImZ3Q7YmFuYW5hcyZsdDsvYiZndDs8L3RpdGxlPjxzdW1tYXJ5
+        IHR5cGU9Imh0bWwiPlRBUklGRiBSQVRFUyBGT1IgJmx0O2ImZ3Q7QkFOQU5B
+        UyZsdDsvYiZndDsgKDEyMjQ5LzA1KS4gTGV0dGVyIGZyb20gdGhlIENoYWly
+        bWFuIHRvIExvcmQgJmx0O2JyJmd0Ow0KQmFjaCwgTWluaXN0ZXIgZm9yIFN1
+        c3RhaW5hYmxlIEZhcm1pbmcgYW5kIEZvb2QsIERlcGFydG1lbnQgZm9yIEVu
+        dmlyb25tZW50LCZhbXA7bmJzcDsuLi48L3N1bW1hcnk+PHVwZGF0ZWQ+MjAx
+        Ny0wNC0wN1QxNDo1MDoxNVo8L3VwZGF0ZWQ+PGxpbmsgcmVsPSJhbHRlcm5h
+        dGUiIGhyZWY9Imh0dHA6Ly93d3cucHVibGljYXRpb25zLnBhcmxpYW1lbnQu
+        dWsvcGEvbGQyMDA1MDYvbGRzZWxlY3QvbGRldWNvbS8yNDMvMjQzNDQuaHRt
+        IiAvPjwvZW50cnk+PGVudHJ5PjxpZD51dWlkOjU0NTgxNDY0LTUxMjMtNDFi
+        MS1iOWQ1LTM0ZDI1NTlmYzUyYjtpZD00NTc8L2lkPjx0aXRsZSB0eXBlPSJo
+        dG1sIj5FYXJseSBkYXkgbW90aW9uIDI1MSAtICZsdDtiJmd0O0JBTkFOQSZs
+        dDsvYiZndDsgVFJBREUgLSBVSyBQYXJsaWFtZW50PC90aXRsZT48c3VtbWFy
+        eSB0eXBlPSJodG1sIj5UaGF0IHRoaXMgSG91c2UgcmVjb2duaXNlcyB0aGUg
+        Y3J1Y2lhbCBjb250cmlidXRpb24gbWFkZSB0byB0aGUgZWNvbm9taWVzIG9m
+        IHRoZSAmbHQ7YnImZ3Q7DQpXaW5kd2FyZCBDYXJpYmJlYW4gSXNsYW5kcyBi
+        eSB0aGUgcHJvZHVjdGlvbiBvZiAmbHQ7YiZndDtiYW5hbmFzJmx0Oy9iJmd0
+        OywgcmVjb2duaXNlZCB1bmRlci48L3N1bW1hcnk+PHVwZGF0ZWQ+MjAxNy0w
+        NC0wN1QxNDo1MDoxNVo8L3VwZGF0ZWQ+PGxpbmsgcmVsPSJhbHRlcm5hdGUi
+        IGhyZWY9Imh0dHA6Ly93d3cucGFybGlhbWVudC51ay9lZG0vMTk5OC05OS8y
+        NTEiIC8+PC9lbnRyeT48ZW50cnk+PGlkPnV1aWQ6NTQ1ODE0NjQtNTEyMy00
+        MWIxLWI5ZDUtMzRkMjU1OWZjNTJiO2lkPTQ1ODwvaWQ+PHRpdGxlIHR5cGU9
+        Imh0bWwiPkFzc2lzdGFuY2UgZm9yIHRyYWRpdGlvbmFsIEFDUCBzdXBwbGll
+        cnMgb2YgJmx0O2ImZ3Q7YmFuYW5hcyZsdDsvYiZndDs8L3RpdGxlPjxzdW1t
+        YXJ5IHR5cGU9Imh0bWwiPkFwciAyMCwgMTk5OCAmbHQ7YiZndDsuLi4mbHQ7
+        L2ImZ3Q7ICgxODg4MykgNjE1MC85OC4gQ09NKDk4KTUsIERyYWZ0IENvdW5j
+        aWwgUmVndWxhdGlvbiBlc3RhYmxpc2hpbmcgYSBzcGVjaWFsICZsdDticiZn
+        dDsNCmZyYW1ld29yayBvZiBhc3Npc3RhbmNlIGZvciB0cmFkaXRpb25hbCBB
+        Q1Agc3VwcGxpZXJzIG9mICZsdDtiJmd0O2JhbmFuYXMmbHQ7L2ImZ3Q7Ljwv
+        c3VtbWFyeT48dXBkYXRlZD4yMDE3LTA0LTA3VDE0OjUwOjE1WjwvdXBkYXRl
+        ZD48bGluayByZWw9ImFsdGVybmF0ZSIgaHJlZj0iaHR0cDovL3d3dy5wdWJs
+        aWNhdGlvbnMucGFybGlhbWVudC51ay9wYS9jbTE5OTc5OC9jbXNlbGVjdC9j
+        bWV1bGVnLzE1NXh4aWkvZWwyMjA0Lmh0bSIgLz48L2VudHJ5PjxlbnRyeT48
+        aWQ+dXVpZDo1NDU4MTQ2NC01MTIzLTQxYjEtYjlkNS0zNGQyNTU5ZmM1MmI7
+        aWQ9NDU5PC9pZD48dGl0bGUgdHlwZT0iaHRtbCI+TWVtb3JhbmR1bSBzdWJt
+        aXR0ZWQgYnkgdGhlIENhcmliYmVhbiAmbHQ7YiZndDtCYW5hbmEmbHQ7L2Im
+        Z3Q7IEV4cG9ydGVycyAuLi48L3RpdGxlPjxzdW1tYXJ5IHR5cGU9Imh0bWwi
+        PkZlYiAyMiwgMjAwNyAmbHQ7YiZndDsuLi4mbHQ7L2ImZ3Q7IFRoZSBDQkVB
+        IHJlcHJlc2VudHMgdGhlIGludGVyZXN0cyBvZiB0aGUgJmx0O2ImZ3Q7YmFu
+        YW5hJmx0Oy9iJmd0OyB0cmFkZSBpbiB0aGUgQ29tbW9ud2VhbHRoICZsdDti
+        ciZndDsNCkNhcmliYmVhbiwgbmFtZWx5IGluIEphbWFpY2EsIEJlbGl6ZSwg
+        YW5kIHRoZSBmb3VyIFdpbmR3YXJkJmFtcDtuYnNwOy4uLjwvc3VtbWFyeT48
+        dXBkYXRlZD4yMDE3LTA0LTA3VDE0OjUwOjE1WjwvdXBkYXRlZD48bGluayBy
+        ZWw9ImFsdGVybmF0ZSIgaHJlZj0iaHR0cDovL3d3dy5wdWJsaWNhdGlvbnMu
+        cGFybGlhbWVudC51ay9wYS9jbTIwMDYwNy9jbXNlbGVjdC9jbWludGRldi91
+        Y2ZhaXJ0cmFkZS8xMjM0MTAuaHRtIiAvPjwvZW50cnk+PGVudHJ5PjxpZD51
+        dWlkOjU0NTgxNDY0LTUxMjMtNDFiMS1iOWQ1LTM0ZDI1NTlmYzUyYjtpZD00
+        NjA8L2lkPjx0aXRsZSB0eXBlPSJodG1sIj5TcGVjaWFsIEZyYW1ld29yayBv
+        ZiBBc3Npc3RhbmNlIGZvciBUcmFkaXRpb25hbCBTdXBwbGllcnMgb2YgJmx0
+        O2ImZ3Q7QmFuYW5hcyZsdDsvYiZndDs8L3RpdGxlPjxzdW1tYXJ5IHR5cGU9
+        Imh0bWwiPkFwciAyLCAyMDA3ICZsdDtiJmd0Oy4uLiZsdDsvYiZndDsgNS4x
+        ICZsdDtiJmd0O0JhbmFuYSZsdDsvYiZndDsgaW1wb3J0cyBpbnRvIHRoZSBF
+        dXJvcGVhbiBVbmlvbiBoYXZlIHRyYWRpdGlvbmFsbHkgYmVlbiByZWd1bGF0
+        ZWQgYnkgJmx0O2JyJmd0Ow0KYSBxdW90YSBzeXN0ZW0gd2l0aCBzdHJvbmcg
+        cHJlZmVyZW50aWFsIHRyZWF0bWVudCBmb3IgQWZyaWNhLCZhbXA7bmJzcDsu
+        Li48L3N1bW1hcnk+PHVwZGF0ZWQ+MjAxNy0wNC0wN1QxNDo1MDoxNVo8L3Vw
+        ZGF0ZWQ+PGxpbmsgcmVsPSJhbHRlcm5hdGUiIGhyZWY9Imh0dHA6Ly93d3cu
+        cHVibGljYXRpb25zLnBhcmxpYW1lbnQudWsvcGEvY20yMDA2MDcvY21zZWxl
+        Y3QvY21ldWxlZy80MS14di80MTA5Lmh0bSIgLz48L2VudHJ5PjxlbnRyeT48
+        aWQ+dXVpZDo1NDU4MTQ2NC01MTIzLTQxYjEtYjlkNS0zNGQyNTU5ZmM1MmI7
+        aWQ9NDYxPC9pZD48dGl0bGUgdHlwZT0iaHRtbCI+QXNzaXN0YW5jZSBmb3Ig
+        dHJhZGl0aW9uYWwgQUNQIHN1cHBsaWVycyBvZiAmbHQ7YiZndDtiYW5hbmFz
+        Jmx0Oy9iJmd0OzwvdGl0bGU+PHN1bW1hcnkgdHlwZT0iaHRtbCI+QXByIDYs
+        IDIwMDEgJmx0O2ImZ3Q7Li4uJmx0Oy9iJmd0OyAxMy4xIFRyYWRpdGlvbmFs
+        IEFDUFsxN10gcHJvZHVjZXJzIG9mICZsdDtiJmd0O2JhbmFuYXMmbHQ7L2Im
+        Z3Q7IGZhdm91cmVkIHVuZGVyIHRoZSBMb23DqSAmbHQ7YnImZ3Q7DQpDb252
+        ZW50aW9uIHdlcmUgZ2l2ZW4gYXNzdXJhbmNlcyB0aGF0IHRoZWlyIGFjY2Vz
+        cyB0byB0aGUgRXVyb3BlYW4mYW1wO25ic3A7Li4uPC9zdW1tYXJ5Pjx1cGRh
+        dGVkPjIwMTctMDQtMDdUMTQ6NTA6MTVaPC91cGRhdGVkPjxsaW5rIHJlbD0i
+        YWx0ZXJuYXRlIiBocmVmPSJodHRwOi8vd3d3LnB1YmxpY2F0aW9ucy5wYXJs
+        aWFtZW50LnVrL3BhL2NtMjAwMDAxL2Ntc2VsZWN0L2NtZXVsZWcvMjgteC8y
+        ODE1Lmh0bSIgLz48L2VudHJ5PjxlbnRyeT48aWQ+dXVpZDo1NDU4MTQ2NC01
+        MTIzLTQxYjEtYjlkNS0zNGQyNTU5ZmM1MmI7aWQ9NDYyPC9pZD48dGl0bGUg
+        dHlwZT0iaHRtbCI+U3BlY2lhbCBGcmFtZXdvcmsgb2YgQXNzaXN0YW5jZSBm
+        b3IgVHJhZGl0aW9uYWwgU3VwcGxpZXJzIG9mICZsdDtiJmd0O0JhbmFuYXMm
+        bHQ7L2ImZ3Q7PC90aXRsZT48c3VtbWFyeSB0eXBlPSJodG1sIj5GZWIgNSwg
+        MjAwNyAmbHQ7YiZndDsuLi4mbHQ7L2ImZ3Q7IDMuMSAmbHQ7YiZndDtCYW5h
+        bmEmbHQ7L2ImZ3Q7IGltcG9ydHMgaW50byB0aGUgRXVyb3BlYW4gVW5pb24g
+        aGF2ZSB0cmFkaXRpb25hbGx5IGJlZW4gcmVndWxhdGVkIGJ5ICZsdDticiZn
+        dDsNCmEgcXVvdGEgc3lzdGVtIHdpdGggc3Ryb25nIHByZWZlcmVudGlhbCB0
+        cmVhdG1lbnQgZm9yIEFmcmljYSwmYW1wO25ic3A7Li4uPC9zdW1tYXJ5Pjx1
+        cGRhdGVkPjIwMTctMDQtMDdUMTQ6NTA6MTVaPC91cGRhdGVkPjxsaW5rIHJl
+        bD0iYWx0ZXJuYXRlIiBocmVmPSJodHRwOi8vd3d3LnB1YmxpY2F0aW9ucy5w
+        YXJsaWFtZW50LnVrL3BhL2NtMjAwNjA3L2Ntc2VsZWN0L2NtZXVsZWcvNDEt
+        dmlpLzQxdmlpMDUuaHRtIiAvPjwvZW50cnk+PGVudHJ5PjxpZD51dWlkOjU0
+        NTgxNDY0LTUxMjMtNDFiMS1iOWQ1LTM0ZDI1NTlmYzUyYjtpZD00NjM8L2lk
+        Pjx0aXRsZSB0eXBlPSJodG1sIj5Mb3JkcyBIYW5zYXJkIHRleHQgZm9yIDIz
+        IEZlYiAxOTk5ICgxOTAyMjMtMDEpPC90aXRsZT48c3VtbWFyeSB0eXBlPSJo
+        dG1sIj5GZWIgMjMsIDE5OTkgJmx0O2ImZ3Q7Li4uJmx0Oy9iJmd0OyBXZSBh
+        cmUgdmVyeSBjb25jZXJuZWQgd2l0aCB0aGUgdGhyZWF0cyB0byB0aGUgQUNQ
+        ICZsdDtiJmd0O2JhbmFuYSZsdDsvYiZndDsgcHJvZHVjZXJzIGFuZCB3aXRo
+        ICZsdDticiZndDsNCnRoZSwgaW4gb3VyIHZpZXcsIHF1aXRlIHVud2FycmFu
+        dGVkIHRocmVhdCBvZiBVbml0ZWQgU3RhdGVzJmFtcDtuYnNwOy4uLjwvc3Vt
+        bWFyeT48dXBkYXRlZD4yMDE3LTA0LTA3VDE0OjUwOjE1WjwvdXBkYXRlZD48
+        bGluayByZWw9ImFsdGVybmF0ZSIgaHJlZj0iaHR0cDovL3d3dy5wdWJsaWNh
+        dGlvbnMucGFybGlhbWVudC51ay9wYS9sZDE5OTg5OS9sZGhhbnNyZC92bzk5
+        MDIyMy90ZXh0LzkwMjIzLTAxLmh0bSIgLz48L2VudHJ5PjxlbnRyeT48aWQ+
+        dXVpZDo1NDU4MTQ2NC01MTIzLTQxYjEtYjlkNS0zNGQyNTU5ZmM1MmI7aWQ9
+        NDY0PC9pZD48dGl0bGUgdHlwZT0iaHRtbCI+RWFybHkgZGF5IG1vdGlvbiA1
+        NjkgLSBDQVJJQkJFQU4gJmx0O2ImZ3Q7QkFOQU5BJmx0Oy9iJmd0OyBSRUdJ
+        TUUgLSBVSyAuLi48L3RpdGxlPjxzdW1tYXJ5IHR5cGU9Imh0bWwiPlRoYXQg
+        dGhpcyBIb3VzZSwgbm90aW5nIHRoYXQgdGhlICZsdDtiJmd0O2JhbmFuYSZs
+        dDsvYiZndDsgcHJvZHVjZXJzIG9mIHRoZSBDYXJpYmJlYW4gJmx0O2JyJmd0
+        Ow0KQ29tbW9ud2VhbHRoIGNvdW50cmllcyBhcmUgZmFjaW5nIHJ1aW4gYmVj
+        YXVzZSBvZiB0aGUgaW1wbGVtZW50YXRpb24gb2YgdGhlICZsdDticiZndDsN
+        Cm5ldyZhbXA7bmJzcDsuLi48L3N1bW1hcnk+PHVwZGF0ZWQ+MjAxNy0wNC0w
+        N1QxNDo1MDoxNVo8L3VwZGF0ZWQ+PGxpbmsgcmVsPSJhbHRlcm5hdGUiIGhy
+        ZWY9Imh0dHA6Ly93d3cucGFybGlhbWVudC51ay9lZG0vMTk5My05NC81Njki
+        IC8+PC9lbnRyeT48L2ZlZWQ+
+    http_version: 
+  recorded_at: Fri, 07 Apr 2017 14:50:50 GMT
+recorded_with: VCR 3.0.3

@@ -7,7 +7,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'parliament/opensearch'
+require 'parliament/open_search'
 
 require 'webmock/rspec'
 require 'vcr'
