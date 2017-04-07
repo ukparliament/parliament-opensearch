@@ -1,36 +1,51 @@
 # Parliament::Opensearch
+[parliament-opensearch](http://github.com/ukparliament/opensearch) is a gem created by the [Parliamentary Digital Service](https://www.parliament.uk/mps-lords-and-offices/offices/bicameral/parliamentary-digital-service/) to allow connections to and the processing of data from OpenSearch APIs.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/parliament/opensearch`. To experiment with that code, run `bin/console` for an interactive prompt.
+> **NOTE:** This gem is in active development and is likely to change at short notice. It is not recommended that you use this in any production environment.
 
-TODO: Delete this and the text above, and describe your gem
+## Requirements
+[parliament-opensearch](http://github.com/ukparliament/opensearch) requires the following:
+* [Ruby](https://www.ruby-lang.org/en/)
+* [Bundler](http://http://bundler.io/)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'open_search'
+This gem is currently not available on RubyGems. To use it in an application, install it directly from GitHub via your Gemfile
+```bash
+gem 'parliament-opensearch', git: 'https://github.com/ukparliament/parliament-open-search.git', branch: 'master'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install parliament-opensearch
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem's main function is fetching data from an OpenSearch API and parsing it.
 
-## Development
+> **Note:** Comprehensive class documentation can be found on [rubydocs](http://www.rubydoc.info/github/ukparliament/parliament-opensearch/master/file/README.md).
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Getting Started with Development
+To clone the repository and set up the dependencies, run the following:
+```bash
+git clone https://github.com/ukparliament/parliament-opensearch.git
+cd parliament-opensearch
+bundle install
+```
+
+### Running the tests
+We use [RSpec](http://rspec.info/) as our testing framework and tests can be run using:
+```bash
+bundle exec rake
+```
 
 ## Contributing
+If you wish to submit a bug fix or feature, you can create a pull request and it will be merged pending a code review.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/parliament-opensearch.
+1. Fork the repository
+1. Create your feature branch (`git checkout -b my-new-feature`)
+1. Commit your changes (`git commit -am 'Add some feature'`)
+1. Push to the branch (`git push origin my-new-feature`)
+1. Ensure your changes are tested using [Rspec](http://rspec.info/)
+1. Create a new Pull Request
+
 
