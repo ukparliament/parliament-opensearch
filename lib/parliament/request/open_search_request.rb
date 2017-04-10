@@ -24,7 +24,7 @@ module Parliament
       # @param [Hash] headers the headers being sent in the request.
       # @param [Parliament::OpenSearch::Builder] builder the builder required to create the response.
       def initialize(base_url: nil, headers: nil, builder: nil)
-        @base_url = Parliament::Request::OpenSearchRequest.get_description(base_url) || self.class.base_url || ENV['OPENSEARCH_DESCRIPTION_URL']
+        @base_url = Parliament::Request::OpenSearchRequest.get_description(base_url) || self.class.base_url
         @open_search_parameters = self.class.open_search_parameters
 
         super(base_url: @base_url, headers: headers, builder: builder)
