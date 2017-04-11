@@ -15,16 +15,20 @@ module Parliament
 
       # Creates a new instance of Parliament::OpenSearch::Request.
       #
-      # An interesting note for #initialize is that setting base_url on the class, or using the environment variable
-      # OPENSEARCH_DESCRIPTION_URL means you don't need to pass in a base_url. You can pass one anyway to override the
-      # environment variable or class parameter.  Similarly, headers can be set by either settings the headers on the class, or passing headers in.
+      # An interesting note for #initialize is that setting description_url on the class means you don't need to pass in a description_url.
+      # You can pass one anyway to override the class parameter.  Similarly, headers can be set by either settings the headers on the class,
+      # or passing headers in.
       #
       # @see Parliament::BaseRequest#initialize
-      # @param [String] base_url the base url for the OpenSearch API description. (expected: http://example.com - without the trailing slash).
+      # @param [String] description_url the url for the OpenSearch API description file. (expected: http://example.com/description.xml - without the trailing slash).
       # @param [Hash] headers the headers being sent in the request.
       # @param [Parliament::OpenSearch::Builder] builder the builder required to create the response.
-      def initialize(base_url: nil, headers: nil, builder: nil)
-        @base_url = Parliament::Request::OpenSearchRequest.get_description(base_url) || self.class.base_url
+      def initialize(description_url: nil, headers: nil, builder: nil)
+        @description_url = description_url
+
+        raise Parliament::OpenSearch::DescriptionError.new(@description_url), 'No description URL passed to Parliament::OpenSearchRequest#new and, no Parliament::OpenSearchRequest#base_url value set. Without a description URL, we are unable to make any search requests.' if @description_url.nil? && self.class.base_url.nil?
+
+        @base_url = Parliament::Request::OpenSearchRequest.get_description(@description_url) || self.class.base_url
         @open_search_parameters = self.class.open_search_parameters
 
         super(base_url: @base_url, headers: headers, builder: builder)
@@ -46,10 +50,11 @@ module Parliament
       # @attr [String] base_url the base url for the OpenSearch API description. (expected: http://example.com - without the trailing slash).
       # @attr [Hash] open_search_parameters the possible parameters to use in the query url.
       class << self
-        attr_reader :base_url, :open_search_parameters
+        attr_reader :description_url, :base_url
 
-        def base_url=(base_url)
-          @base_url = get_description(base_url)
+        def description_url=(description_url)
+          @description_url = description_url
+          @base_url = Parliament::Request::OpenSearchRequest.get_description(@description_url)
         end
 
         def open_search_parameters
@@ -59,12 +64,26 @@ module Parliament
         def get_description(url)
           return if url.nil?
 
+          begin
+            URI.parse(url)
+          rescue URI::InvalidURIError => e
+            raise Parliament::OpenSearch::DescriptionError.new(url), "Invalid description URI passed '#{url}': #{e.message}"
+          end
+
           request = Parliament::Request::BaseRequest.new(base_url: url,
                                                          headers: {'Accept' => 'application/opensearchdescription+xml'})
           xml_response = request.get
 
-          xml_root = REXML::Document.new(xml_response.body).root
-          xml_root.elements['Url'].attributes['template']
+          begin
+            xml_root = REXML::Document.new(xml_response.body).root
+            template = xml_root.elements['Url'].attributes['template']
+
+            raise Parliament::OpenSearch::DescriptionError.new(url), "The document found does not contain a require node. Attempted to get a 'Url' element with the attribute 'template'. Please check the description document at '#{url}' and try again." if template.nil?
+          rescue NoMethodError
+            raise Parliament::OpenSearch::DescriptionError.new(url), "The document found does not appear to be XML. Please check the description document at '#{url}' and try again."
+          end
+
+          template
         end
       end
 
