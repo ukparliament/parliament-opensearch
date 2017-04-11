@@ -1,16 +1,16 @@
 require_relative '../../../../spec/spec_helper'
 
-describe Parliament::OpenSearch::Request::OpenSearchRequest, vcr: true do
+describe Parliament::Request::OpenSearchRequest, vcr: true do
   context 'initializing' do
     it 'sets @base_url correctly when passed in' do
-      request = Parliament::OpenSearch::Request::OpenSearchRequest.new(base_url: 'http://parliament-search-api.azurewebsites.net/description')
+      request = Parliament::Request::OpenSearchRequest.new(base_url: 'http://parliament-search-api.azurewebsites.net/description')
 
       expect(request.base_url).to eq('http://parliament-search-api.azurewebsites.net/search?q={searchTerms}&start={startPage?}')
     end
 
     it 'sets @base_url correctly when set on the class' do
-      Parliament::OpenSearch::Request::OpenSearchRequest.base_url = 'http://parliament-search-api.azurewebsites.net/description'
-      request = Parliament::OpenSearch::Request::OpenSearchRequest.new
+      Parliament::Request::OpenSearchRequest.base_url = 'http://parliament-search-api.azurewebsites.net/description'
+      request = Parliament::Request::OpenSearchRequest.new
 
       expect(request.base_url).to eq('http://parliament-search-api.azurewebsites.net/search?q={searchTerms}&start={startPage?}')
     end
@@ -18,9 +18,9 @@ describe Parliament::OpenSearch::Request::OpenSearchRequest, vcr: true do
 
   context '#get' do
     before(:each) do
-      @request = Parliament::OpenSearch::Request::OpenSearchRequest.new(base_url: 'http://parliament-search-api.azurewebsites.net/description',
+      @request = Parliament::Request::OpenSearchRequest.new(base_url: 'http://parliament-search-api.azurewebsites.net/description',
                                                             headers: { 'Accept' => 'application/atom+xml' },
-                                                            builder: Parliament::OpenSearch::Builder::OpenSearchResponseBuilder)
+                                                            builder: Parliament::Builder::OpenSearchResponseBuilder)
     end
 
     it 'returns a Feedjira Feed' do
@@ -35,7 +35,7 @@ describe Parliament::OpenSearch::Request::OpenSearchRequest, vcr: true do
       expect(result.entries.first.title).to eq('House of Commons - Documents considered by the Committee on ...')
       expect(result.entries.first.summary).to include('Dec 15, 2010 <b>...</b> 9.3 In that chapter, we also outlined the steps that the EU had taken')
       expect(result.entries.first.url).to eq('https://www.publications.parliament.uk/pa/cm201011/cmselect/cmeuleg/428/42811.htm')
-      expect(result.totalResults).to eq('18300')
+      expect(result.totalResults).to eq('18400')
     end
 
     it 'sets the search parameters correctly - uses the defaults' do
