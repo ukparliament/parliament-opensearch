@@ -1,6 +1,9 @@
+require 'rexml/document'
+
 require 'parliament'
 
 require 'parliament/open_search/version'
+require 'parliament/open_search/description_error'
 require 'parliament/request/open_search_request'
 require 'parliament/builder/open_search_response_builder'
 

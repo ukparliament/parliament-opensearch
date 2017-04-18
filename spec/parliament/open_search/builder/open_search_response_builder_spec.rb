@@ -2,7 +2,7 @@ require_relative '../../../../spec/spec_helper'
 
 describe Parliament::Builder::OpenSearchResponseBuilder, vcr: true do
   let(:request) do
-    Parliament::Request::OpenSearchRequest.new(base_url: 'http://parliament-search-api.azurewebsites.net/description',
+    Parliament::Request::OpenSearchRequest.new(description_url: 'http://parliament-search-api.azurewebsites.net/description',
                                                headers: { 'Accept' => 'application/atom+xml' },
                                                builder: Parliament::Builder::OpenSearchResponseBuilder)
   end
