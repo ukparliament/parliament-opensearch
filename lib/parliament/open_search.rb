@@ -1,4 +1,5 @@
 require 'rexml/document'
+require 'active_support/inflector'
 
 require 'parliament'
 

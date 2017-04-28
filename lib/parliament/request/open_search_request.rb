@@ -75,7 +75,7 @@ module Parliament
           xml_response = request.get
 
           begin
-            xml_root = REXML::Document.new(xml_response.body).root
+            xml_root = REXML::Document.new(xml_response.response.body).root
             template = xml_root.elements['Url'].attributes['template']
 
             raise Parliament::OpenSearch::DescriptionError.new(url), "The document found does not contain a require node. Attempted to get a 'Url' element with the attribute 'template'. Please check the description document at '#{url}' and try again." if template.nil?
