@@ -1,5 +1,3 @@
-require 'feedjira'
-
 module Parliament
   module Builder
     # OpenSearch response builder using Feedjira to parse the response.
