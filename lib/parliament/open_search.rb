@@ -8,24 +8,27 @@ module Parliament
         if parliament_response?
           register_parliament_response
         else
-          raise(LoadError, 'Missing requirement Parliament::Response')
+          raise(LoadError, "Missing requirement 'Parliament::Response'. Have you added `gem 'parliament-ruby'` to your Gemfile?")
         end
 
         if parliament_request?
           register_parliament_request
+          register_opensearch_request
         else
-          raise(LoadError, 'Missing requirement Parliament::Request')
+          raise(LoadError, "Missing requirement 'Parliament::Request'. Have you added `gem 'parliament-ruby'` to your Gemfile?")
         end
 
         if parliament_builder?
           register_parliament_builder
+          register_opensearch_builder
         else
-          raise(LoadError, 'Missing requirement Parliament::Builder')
+          raise(LoadError, "Missing requirement 'Parliament::Builder'. Have you added `gem 'parliament-ruby'` to your Gemfile?")
         end
 
         register_opensearch
         register_rexml_document
         register_active_support_inflector
+        register_feedjira
       end
 
       def parliament_response?
@@ -57,7 +60,13 @@ module Parliament
       def register_opensearch
         require 'parliament/open_search/version'
         require 'parliament/open_search/description_error'
+      end
+
+      def register_opensearch_request
         require 'parliament/request/open_search_request'
+      end
+
+      def register_opensearch_builder
         require 'parliament/builder/open_search_response_builder'
       end
 
@@ -67,6 +76,10 @@ module Parliament
 
       def register_active_support_inflector
         require 'active_support/inflector'
+      end
+
+      def register_feedjira
+        require 'feedjira'
       end
     end
   end
