@@ -1,0 +1,190 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api20170418155059.azure-api.net/search/description
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/opensearchdescription+xml
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/opensearchdescription+xml
+      Expires:
+      - "-1"
+      Set-Cookie:
+      - ARRAffinity=9db3f02a32b1f6ccb0b1ec4a2b0d71fe64351b6d3571cc936313fc29cf6e64af;Path=/;Domain=20170418155059search.azurewebsites.net
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 08 May 2017 15:19:32 GMT
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\"?>\r\n<OpenSearchDescription xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">\r\n
+        \ <ShortName>parliament.uk</ShortName>\r\n  <Description>UK Parliament website</Description>\r\n
+        \ <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/atom+xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/rss+xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/json\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"text/json\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"text/xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/xml\" />\r\n</OpenSearchDescription>"
+    http_version: 
+  recorded_at: Mon, 08 May 2017 15:20:53 GMT
+- request:
+    method: get
+    uri: https://api20170418155059.azure-api.net/search/description
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/opensearchdescription+xml
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/opensearchdescription+xml
+      Expires:
+      - "-1"
+      Set-Cookie:
+      - ARRAffinity=9db3f02a32b1f6ccb0b1ec4a2b0d71fe64351b6d3571cc936313fc29cf6e64af;Path=/;Domain=20170418155059search.azurewebsites.net
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 08 May 2017 15:19:32 GMT
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\"?>\r\n<OpenSearchDescription xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">\r\n
+        \ <ShortName>parliament.uk</ShortName>\r\n  <Description>UK Parliament website</Description>\r\n
+        \ <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/atom+xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/rss+xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/json\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"text/json\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"text/xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/xml\" />\r\n</OpenSearchDescription>"
+    http_version: 
+  recorded_at: Mon, 08 May 2017 15:20:53 GMT
+- request:
+    method: get
+    uri: https://api20170418155059.azure-api.net/search?pagesize=10&q=peach&start=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/rss+xml
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '4779'
+      Content-Type:
+      - application/rss+xml
+      Expires:
+      - "-1"
+      Set-Cookie:
+      - ARRAffinity=9db3f02a32b1f6ccb0b1ec4a2b0d71fe64351b6d3571cc936313fc29cf6e64af;Path=/;Domain=20170418155059search.azurewebsites.net
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 08 May 2017 15:19:32 GMT
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><rss xmlns:a10=\"http://www.w3.org/2005/Atom\"
+        version=\"2.0\"><channel><title /><description /><a10:author><a10:name>parliament.uk</a10:name></a10:author><Query
+        role=\"request\" searchTerms=\"peach\" totalResults=\"1430\" count=\"10\"
+        startIndex=\"1\" xmlns=\"http://a9.com/-/spec/opensearch/1.1/\" /><totalResults
+        xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">1430</totalResults><startIndex
+        xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">1</startIndex><item><link>https://www.publications.parliament.uk/pa/cm201213/cmselect/cmeduc/559/559vw62.htm</link><title>Written
+        evidence submitted by &lt;b&gt;Peach&lt;/b&gt;</title><description>&lt;b&gt;Peach&lt;/b&gt;
+        is a national charity that supports parents of children with autism and their
+        &lt;br&gt;\r\nfamilies by providing advice, information and behavioural services.
+        &lt;b&gt;Peach&lt;/b&gt;&amp;nbsp;...</description></item><item><link>http://www.publications.parliament.uk/pa/cm201314/cmpublic/defencereform/memo/dr11.htm</link><title>Vice
+        Chief of the Defence Staff, Air Chief Marshal Sir Stuart &lt;b&gt;Peach&lt;/b&gt;
+        ...</title><description>Oct 23, 2013 &lt;b&gt;...&lt;/b&gt; Written evidence
+        submitted by Vice Chief of the Defence Staff, Air Chief Marshal &lt;br&gt;\r\nSir
+        Stuart &lt;b&gt;Peach&lt;/b&gt; (DR 11). During my oral evidence to the&amp;nbsp;...</description></item><item><link>http://www.publications.parliament.uk/pa/cm199798/cmselect/cmpubadm/327i/pa0113.htm</link><title>House
+        of Commons - Public Administration - First Report</title><description>Feb
+        18, 1998 &lt;b&gt;...&lt;/b&gt; (Sir Leonard &lt;b&gt;Peach&lt;/b&gt;) Effectively
+        the presence of the independent is noted by &lt;br&gt;\r\ncandidates and if
+        they feel they are unfairly treated they write to me&amp;nbsp;...</description></item><item><link>https://www.publications.parliament.uk/pa/cm201213/cmselect/cmsctech/322/322vw04.htm</link><title>Written
+        evidence submitted by Professor Ceri &lt;b&gt;Peach&lt;/b&gt; Emeritus</title><description>Science
+        and Technology CommitteeWritten evidence submitted by Professor &lt;br&gt;\r\nCeri
+        &lt;b&gt;Peach&lt;/b&gt; Emeritus (Census 03). Preface. 1. The decision to
+        abandon &lt;br&gt;\r\ndecennial&amp;nbsp;...</description></item><item><link>http://www.publications.parliament.uk/pa/cm200203/cmselect/cmwelaf/916/3070107.htm</link><title>House
+        of Commons - Welsh Affairs - Minutes of Evidence</title><description>Nov 20,
+        2003 &lt;b&gt;...&lt;/b&gt; MR MIKE NORGROVE, MR MARTIN &lt;b&gt;PEACH&lt;/b&gt;
+        AND MR BOB SKINNER. 1 JULY &lt;br&gt;\r\n2003. Q45 Chairman: If we can start.
+        I am glad you were able to&amp;nbsp;...</description></item><item><link>http://www.publications.parliament.uk/pa/cm199798/cmselect/cmpubadm/327i/pa0115.htm</link><title>House
+        of Commons - Public Administration - First Report</title><description>Feb
+        18, 1998 &lt;b&gt;...&lt;/b&gt; (Sir Leonard &lt;b&gt;Peach&lt;/b&gt;) I welcome
+        an invitation and I know a number of people in &lt;br&gt;\r\nthe trade union
+        movement anyway. Clearly I have to look for the&amp;nbsp;...</description></item><item><link>http://www.publications.parliament.uk/pa/cm199697/cmselect/cmeuleg/036xvii/el1719.htm</link><title>Apple,
+        pear, &lt;b&gt;peach&lt;/b&gt; and nectarine production</title><description>Mar
+        24, 1997 &lt;b&gt;...&lt;/b&gt; 17.1 The Commission considers that there is
+        a structural over-supply of apples, &lt;br&gt;\r\npears, &lt;b&gt;peaches&lt;/b&gt;
+        and nectarines and, in the context of the reform&amp;nbsp;...</description></item><item><link>http://www.publications.parliament.uk/pa/cm199900/cmhansrd/vo000202/halltext/00202h03.htm</link><title>House
+        of Commons Hansard Debates for 2 Feb 2000 (pt 3)</title><description>I certainly
+        welcome the establishment of the inquiry by Sir Len &lt;b&gt;Peach&lt;/b&gt;
+        into judicial &lt;br&gt;\r\nand Queen&amp;#39;s Counsel appointments. The
+        Lord Chancellor must be&amp;nbsp;...</description></item><item><link>http://www.publications.parliament.uk/pa/cm199798/cmselect/cmpubadm/327i/pa0114.htm</link><title>House
+        of Commons - Public Administration - First Report</title><description>Feb
+        18, 1998 &lt;b&gt;...&lt;/b&gt; (Sir Leonard &lt;b&gt;Peach&lt;/b&gt;) I immediately
+        respond by saying I have no authority in this &lt;br&gt;\r\narea. I give you
+        a personal opinion. My personal opinion is that I&amp;nbsp;...</description></item><item><link>http://www.publications.parliament.uk/pa/cm200203/cmselect/cmwelaf/916/3070110.htm</link><title>House
+        of Commons - Welsh Affairs - Minutes of Evidence</title><description>Nov 20,
+        2003 &lt;b&gt;...&lt;/b&gt; Q100 Albert Owen: Mr &lt;b&gt;Peach&lt;/b&gt;
+        mentioned that the port authorities would be part of &lt;br&gt;\r\nthe consultation
+        but Milford Haven Port Authority informed us&amp;nbsp;...</description></item></channel></rss>"
+    http_version: 
+  recorded_at: Mon, 08 May 2017 15:20:54 GMT
+recorded_with: VCR 3.0.3
