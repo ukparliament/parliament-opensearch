@@ -71,7 +71,10 @@ module Parliament
           end
 
           request = Parliament::Request::BaseRequest.new(base_url: url,
-                                                         headers: {'Accept' => 'application/opensearchdescription+xml'})
+                                                         headers: {
+                                                             'Accept' => 'application/opensearchdescription+xml',
+                                                             'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']
+                                                         })
           xml_response = request.get
 
           begin
