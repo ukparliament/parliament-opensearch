@@ -108,6 +108,9 @@ module Parliament
         type ||= 'application/atom+xml'
 
         url_hash = @templates[:url].select { |url| url[:type] == type }.first
+
+        raise Parliament::OpenSearch::DescriptionError.new(type), "There is no url for the requested type '#{type}'." if url_hash.nil?
+
         query_url = url_hash[:template].dup
 
         query_url.gsub!('{searchTerms}', search_terms)

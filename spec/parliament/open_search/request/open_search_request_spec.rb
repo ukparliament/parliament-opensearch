@@ -101,13 +101,23 @@ of the <b>banana</b> in my life')
 
     it 'can accept a type and make a request to the correct url using the specified type' do
       new_request = Parliament::Request::OpenSearchRequest.new(description_url: 'https://api20170418155059.azure-api.net/search/description',
-                                                                                headers: { 'Accept' => 'application/rss+xml',
-                                                                                            'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']},
-                                                                                builder: Parliament::Builder::OpenSearchResponseBuilder)
+                                                               headers: { 'Accept' => 'application/rss+xml',
+                                                                          'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']
+                                                               },
+                                                               builder: Parliament::Builder::OpenSearchResponseBuilder)
       new_request.get({ query: 'peach' }, type: 'application/rss+xml')
 
       expect(WebMock).to have_requested(:get, 'https://api20170418155059.azure-api.net/search?pagesize=10&q=peach&start=1').
           with(:headers => {'Accept'=>['*/*', 'application/rss+xml']}).once
+    end
+
+    it 'raises an error if the requested type is not specified in the description document' do
+      error_request = Parliament::Request::OpenSearchRequest.new(description_url: 'https://api20170418155059.azure-api.net/search/description',
+                                                               headers: { 'Accept' => 'application/rss+xml',
+                                                                          'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']
+                                                               },
+                                                               builder: Parliament::Builder::OpenSearchResponseBuilder)
+      expect{ error_request.get({ query: 'peach' }, type: 'application/ntriple') }.to raise_error(Parliament::OpenSearch::DescriptionError, "There is no url for the requested type 'application/ntriple'.")
     end
   end
 end
