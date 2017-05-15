@@ -54,11 +54,11 @@ describe Parliament::Request::OpenSearchRequest, vcr: true do
 
     context 'with an invalid description document' do
       it 'raises a Parliament::OpenSearch::DescriptionError for non-xml' do
-        expect{ Parliament::Request::OpenSearchRequest.new(description_url: 'http://parliament-search-api.azurewebsites.net/description.json') }.to raise_error(Parliament::OpenSearch::DescriptionError, "The document found does not appear to be XML. Please check the description document at 'http://parliament-search-api.azurewebsites.net/description.json' and try again.")
+        expect{ Parliament::Request::OpenSearchRequest.new(description_url: 'https://api20170418155059.azure-api.net/search/description') }.to raise_error(Parliament::OpenSearch::DescriptionError, "The document found does not appear to be XML. Please check the description document at 'https://api20170418155059.azure-api.net/search/description' and try again.")
       end
 
       it 'raises a Parliament::OpenSearch::DescriptionError for xml missing required nodes' do
-        expect{ Parliament::Request::OpenSearchRequest.new(description_url: 'http://parliament-search-api.azurewebsites.net/description') }.to raise_error(Parliament::OpenSearch::DescriptionError, "The document found does not contain the required node. Attempted to get a 'Url' element with the attribute 'template'. Please check the description document at 'http://parliament-search-api.azurewebsites.net/description' and try again.")
+        expect{ Parliament::Request::OpenSearchRequest.new(description_url: 'https://api20170418155059.azure-api.net/search/description') }.to raise_error(Parliament::OpenSearch::DescriptionError, "The document found does not contain the required node. Attempted to get a 'Url' element with the attribute 'template'. Please check the description document at 'https://api20170418155059.azure-api.net/search/description' and try again.")
       end
     end
   end
@@ -84,7 +84,7 @@ describe Parliament::Request::OpenSearchRequest, vcr: true do
       expect(result.entries.first.summary).to include('I do not want to repeat all the elegant and witty remarks I made on the importance <br>
 of the <b>banana</b> in my life')
       expect(result.entries.first.url).to eq('http://www.publications.parliament.uk/pa/cm199900/cmstand/euroa/st000404/00404s04.htm')
-      expect(result.totalResults).to eq('18900')
+      expect(result.totalResults).to eq('19100')
     end
 
     it 'sets the search parameters correctly - uses the defaults' do

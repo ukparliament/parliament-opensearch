@@ -90,7 +90,7 @@ module Parliament
               templates[:url] << { type: type, template: template }
             end
 
-            raise Parliament::OpenSearch::DescriptionError.new(url), "The document found does not contain the required node. Attempted to get a 'Url' element with the attribute 'template'. Please check the description document at '#{url}' and try again." if templates[:url].any? { |url| url[:template].nil? }
+            raise Parliament::OpenSearch::DescriptionError.new(url), "The document found does not contain the required node. Attempted to get a 'Url' element with the attribute 'template'. Please check the description document at '#{url}' and try again." if templates[:url].empty?
           rescue NoMethodError
             raise Parliament::OpenSearch::DescriptionError.new(url), "The document found does not appear to be XML. Please check the description document at '#{url}' and try again."
           end
