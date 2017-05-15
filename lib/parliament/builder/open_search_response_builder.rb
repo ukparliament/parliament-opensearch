@@ -4,7 +4,7 @@ module Parliament
     #
     # @since 0.1.0
     class OpenSearchResponseBuilder < Parliament::Builder::BaseResponseBuilder
-      OPEN_SEARCH_ELEMENTS = %w[totalResults Query startIndex itemsPerPage].freeze
+      OPEN_SEARCH_ELEMENTS = %w(totalResults Query startIndex itemsPerPage).freeze
 
       # Builds a Feedjira::Feed response.  It adds the extra OpenSearch feed elements, then parses the HTTP Response.
       def build

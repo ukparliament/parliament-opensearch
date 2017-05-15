@@ -25,12 +25,12 @@ VCR.configure do |config|
 
   # Dynamically filter our sensitive information
   config.filter_sensitive_data('<AUTH_TOKEN>') { ENV['OPENSEARCH_AUTH_TOKEN'] }
+  config.filter_sensitive_data('http://localhost:3030') { ENV['OPENSEARCH_DESCRIPTION_URL'] }
 end
 
 RSpec.configure do |config|
-
   # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
+  config.example_status_persistence_file_path = '.rspec_status'
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
