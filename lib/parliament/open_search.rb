@@ -1,6 +1,6 @@
-# Namespace for classes and modules that handle connections to, and processing of data from OpenSearch APIs.
-# @since 0.1.0
 module Parliament
+  # Namespace for classes and modules that handle connections to, and processing of data from OpenSearch APIs.
+  # @since 0.1.0
   module OpenSearch
     # Currently just a namespace definition
     class << self
