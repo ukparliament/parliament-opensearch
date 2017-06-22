@@ -1,5 +1,5 @@
 module Parliament
   module OpenSearch
-    VERSION = '0.2.6'.freeze
+    VERSION = '0.2.7.pre'.freeze
   end
 end
