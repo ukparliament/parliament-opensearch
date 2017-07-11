@@ -11,7 +11,7 @@ checkout_to_release:
 	git checkout -b release $(REL_TAG)
 
 deploy_to_release:
-	rm *.gem
+	rm -f *.gem
 	gem build *.gemspec
 	gem push *.gem
 	rm *.gem
