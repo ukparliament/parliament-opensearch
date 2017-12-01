@@ -12,6 +12,11 @@ module Parliament
           Feedjira::Feed.add_common_feed_element(element)
         end
 
+        # Add custom parser entries for hints
+        Feedjira::Parser::AtomEntry.element(:hints)
+        Feedjira::Parser::AtomEntry.element(:hint)
+        Feedjira::Parser::AtomEntry.element(:Name, as: :hint_type)
+
         Feedjira::Feed.parse(@response.body)
       end
     end
