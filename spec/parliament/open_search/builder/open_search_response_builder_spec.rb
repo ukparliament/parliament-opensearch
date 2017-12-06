@@ -24,5 +24,12 @@ describe Parliament::Builder::OpenSearchResponseBuilder, vcr: true do
       expect(@search_response.entries.first.url).to eq('https://www.publications.parliament.uk/pa/cm201011/cmselect/cmeuleg/428/42811.htm')
       expect(@search_response.totalResults).to eq('18600')
     end
+
+    context 'hints' do
+      it 'will return the correct type' do
+        expect(@search_response.entries.first.hint_type).to eq('Type: PDF')
+        expect(@search_response.entries.last.hint_type).to eq('Research Briefings')
+      end
+    end
   end
 end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030
+    uri: https://api.parliament.uk/Staging/search/description
     body:
       encoding: US-ASCII
       string: ''
@@ -43,18 +43,18 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\r\n<OpenSearchDescription xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">\r\n
         \ <ShortName>parliament.uk</ShortName>\r\n  <Description>UK Parliament website</Description>\r\n
-        \ <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"application/atom+xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"application/rss+xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"application/json\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"text/json\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"text/xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        \ <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/atom+xml\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/rss+xml\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/json\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"text/json\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"text/xml\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
         type=\"application/xml\" />\r\n</OpenSearchDescription>"
     http_version: 
   recorded_at: Mon, 15 May 2017 13:34:03 GMT
 - request:
     method: get
-    uri: http://localhost:3030
+    uri: https://api.parliament.uk/Staging/search/description
     body:
       encoding: US-ASCII
       string: ''
@@ -95,12 +95,12 @@ http_interactions:
       encoding: UTF-8
       string: "<?xml version=\"1.0\"?>\r\n<OpenSearchDescription xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">\r\n
         \ <ShortName>parliament.uk</ShortName>\r\n  <Description>UK Parliament website</Description>\r\n
-        \ <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"application/atom+xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"application/rss+xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"application/json\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"text/json\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
-        type=\"text/xml\" />\r\n  <Url template=\"https://api20170418155059.azure-api.net/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        \ <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/atom+xml\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/rss+xml\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"application/json\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"text/json\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
+        type=\"text/xml\" />\r\n  <Url template=\"https://api.parliament.uk/Staging/search?q={searchTerms}&amp;start={startPage?}&amp;pagesize={count?}\"
         type=\"application/xml\" />\r\n</OpenSearchDescription>"
     http_version: 
   recorded_at: Mon, 15 May 2017 13:34:03 GMT
