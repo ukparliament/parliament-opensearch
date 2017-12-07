@@ -31,5 +31,11 @@ describe Parliament::Builder::OpenSearchResponseBuilder, vcr: true do
         expect(@search_response.entries.last.hint_type).to eq('Research Briefings')
       end
     end
+
+    context 'formatted URL' do
+      it 'will return the correct title' do
+        expect(@search_response.entries[1].formatted_url).to eq('https://hansard.parliament.uk/.../EUTradeAgreementOnBananaImports')
+      end
+    end
   end
 end

@@ -17,6 +17,9 @@ module Parliament
         Feedjira::Parser::AtomEntry.element(:hint)
         Feedjira::Parser::AtomEntry.element(:Name, as: :hint_type)
 
+        # Custom parser for formatted link
+        Feedjira::Parser::AtomEntry.element(:link, as: :formatted_url, value: :title)
+
         Feedjira::Feed.parse(@response.body)
       end
     end
