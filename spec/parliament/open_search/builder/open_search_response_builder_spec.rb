@@ -27,8 +27,18 @@ describe Parliament::Builder::OpenSearchResponseBuilder, vcr: true do
 
     context 'hints' do
       it 'will return the correct type' do
-        expect(@search_response.entries.first.hint_type).to eq('Type: PDF')
-        expect(@search_response.entries.last.hint_type).to eq('Research Briefings')
+        expect(@search_response.entries.first.hint_types).to eq(["Type: PDF", "Research Briefings", "Research Briefings document", "Document reference number: RP99-28"])
+        expect(@search_response.entries.last.hint_types).to eq(['Research Briefings'])
+      end
+
+      it 'will return multiple hints' do
+        expect(@search_response.entries.first.hint_types.class).to eq(Array)
+      end
+
+      context 'no hints' do
+        it 'returns an empty array' do
+          expect(@search_response.entries.first.hint_types).to eq([])
+        end
       end
     end
 

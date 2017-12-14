@@ -13,9 +13,7 @@ module Parliament
         end
 
         # Add custom parser entries for hints
-        Feedjira::Parser::AtomEntry.element(:hints)
-        Feedjira::Parser::AtomEntry.element(:hint)
-        Feedjira::Parser::AtomEntry.element(:Name, as: :hint_type)
+        Feedjira::Parser::AtomEntry.elements(:Name, as: :hint_types)
 
         # Custom parser for formatted link
         Feedjira::Parser::AtomEntry.element(:link, as: :formatted_url, value: :title)

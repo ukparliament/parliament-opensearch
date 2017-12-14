@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/opensearchdescription+xml
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/opensearchdescription+xml
+      Expires:
+      - "-1"
+      Request-Context:
+      - appId=cid-v1:330aa411-57af-491f-b22a-1cab7d08a6a9
+      Set-Cookie:
+      - ARRAffinity=8e2a056adb1b7abe4eaf33e650cedb436e20433b5855b1a32b1d35b5078580cc;Path=/;HttpOnly;Domain=search201710091000.azurewebsites.net
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 14 Dec 2017 12:14:35 GMT
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\"?>\r\n<OpenSearchDescription xmlns=\"http://a9.com/-/spec/opensearch/1.1/\">\r\n
+        \ <ShortName>parliament.uk</ShortName>\r\n  <Description>UK Parliament</Description>\r\n
+        \ <Url template=\"https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&amp;start={startIndex?}&amp;count={count?}\"
+        type=\"application/atom+xml\" />\r\n  <Url template=\"https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&amp;start={startIndex?}&amp;count={count?}\"
+        type=\"application/rss+xml\" />\r\n  <Url template=\"https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&amp;start={startIndex?}&amp;count={count?}\"
+        type=\"application/json\" />\r\n  <Url template=\"https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&amp;start={startIndex?}&amp;count={count?}\"
+        type=\"text/json\" />\r\n  <Url template=\"https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&amp;start={startIndex?}&amp;count={count?}\"
+        type=\"text/xml\" />\r\n  <Url template=\"https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&amp;start={startIndex?}&amp;count={count?}\"
+        type=\"application/xml\" />\r\n</OpenSearchDescription>"
+    http_version: 
+  recorded_at: Thu, 14 Dec 2017 12:16:41 GMT
+- request:
+    method: get
+    uri: https://api-parliament-uk.azure-api.net/Staging/search?count=10&q=banana&start=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/atom+xml
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '2663'
+      Content-Type:
+      - application/atom+xml
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      Request-Context:
+      - appId=cid-v1:330aa411-57af-491f-b22a-1cab7d08a6a9
+      Set-Cookie:
+      - ARRAffinity=8e2a056adb1b7abe4eaf33e650cedb436e20433b5855b1a32b1d35b5078580cc;Path=/;HttpOnly;Domain=search201710091000.azurewebsites.net
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 14 Dec 2017 12:14:35 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version='1.0' encoding='utf-8'?><feed xmlns='http://www.w3.org/2005/Atom'><title type='text'>Parliament.uk Search: banana</title><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=195</id><updated>2017-12-14T11:43:11Z</updated><author><name>Parliament.uk</name></author><Query role='request' searchTerms='banana' totalResults='423' count='10' startIndex='1' xmlns='http://a9.com/-/spec/opensearch/1.1/' /><totalResults xmlns='http://a9.com/-/spec/opensearch/1.1/'>423</totalResults><startIndex xmlns='http://a9.com/-/spec/opensearch/1.1/'>1</startIndex><itemsPerPage xmlns='http://a9.com/-/spec/opensearch/1.1/'>10</itemsPerPage><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=196</id><title type='text'>Trade dispute between the EU and the US over bananas</title><updated>2017-12-14T11:43:11Z</updated><link title='researchbriefings.files.parliament.uk/documents/RP99-28/RP99-28.pdf' href='http://researchbriefings.files.parliament.uk/documents/RP99-28/RP99-28.pdf' /><content type='text'>The Trade Dispute between the EU and the USA over Bananas ... “In respect of banana exports to the Community market, no ACP State shall be placed, ...</content></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=197</id><title type='text'>EU: Trade Agreement on Banana Imports - Hansard Online</title><updated>2017-12-14T11:43:11Z</updated><link title='https://hansard.parliament.uk/.../EUTradeAgreementOnBananaImports' href='https://hansard.parliament.uk/Lords/2012-02-07/debates/12020792000204/EUTradeAgreementOnBananaImports' /><content type='text'>To ask Her Majesty’s Government what is their assessment of the effects of the European Union trade agreement on banana imports and its impact on African, Caribbean ...</content><hints xmlns=''><hint><Name>Hansard</Name><Filter>hansard.parliament.uk</Filter></hint><hint><Name>Day: 07-02-2012</Name><Filter>hansard.parliament.uk/Lords/2012-02-07</Filter></hint><hint><Name>Debate</Name><Filter></Filter></hint></hints></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=198</id><title type='text'>Allow bendy bananas and wonky carrots to be sold same as ...</title><updated>2017-12-14T11:43:11Z</updated><link title='https://petition.parliament.uk/petitions/133639' href='https://petition.parliament.uk/petitions/133639' /><content type='text'>Commission Regulation (EC) No. 2257/94 of 16 September 1994 laying down quality standards for bananas, also known informally as bendy banana law, is a ...</content><hints xmlns=''><hint><Name>Petition</Name><Filter>petition.parliament.uk</Filter></hint><hint><Name>Petition Id: 133639</Name><Filter></Filter></hint></hints></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=199</id><title type='text'>Banana Imports - United Kingdom Parliament home page</title><updated>2017-12-14T11:43:11Z</updated><link title='https://publications.parliament.uk/pa/cm199900/cmstand/euroa/st...' href='https://publications.parliament.uk/pa/cm199900/cmstand/euroa/st000404/00404s01.htm' /><content type='text'>European Standing Committee A Tuesday 4 April 2000 [Mr. Eric Illsley in the Chair] Banana Imports. 10.38 am. The Minister of State, Ministry of Agriculture, Fisheries ...</content><hints xmlns=''><hint><Name>Commons publication from session: 1999-00</Name><Filter>publications.parliament.uk/pa/cm199900</Filter></hint><hint><Name>Standing Committee Debates</Name><Filter></Filter></hint></hints></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=200</id><title type='text'>House of Commons Standing Committee B (pt 10)</title><updated>2017-12-14T11:43:11Z</updated><link title='https://publications.parliament.uk/pa/cm200506/cmstand/b/st051025/...' href='https://publications.parliament.uk/pa/cm200506/cmstand/b/st051025/am/51025s10.htm' /><content type='text'>In any event, there are plenty of other offences that would cover a banana being used in a robbery—such as that of robbery, for instance.</content><hints xmlns=''><hint><Name>Commons publication from session: 2005-06</Name><Filter>publications.parliament.uk/pa/cm200506</Filter></hint><hint><Name>Standing Committee Debates</Name><Filter></Filter></hint></hints></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=201</id><title type='text'>House of Commons - International Development - Minutes of ...</title><updated>2017-12-14T11:43:11Z</updated><link title='https://publications.parliament.uk/pa/cm199798/cmselect/cmintdev/...' href='https://publications.parliament.uk/pa/cm199798/cmselect/cmintdev/365/8020302.htm' /><content type='text'>Memorandum from the Caribbean Banana Exporters Association EXECUTIVE SUMMARY (i) The Caribbean banana export trade developed under the aegis of a ...</content><hints xmlns=''><hint><Name>Commons publication from session: 1997-98</Name><Filter>publications.parliament.uk/pa/cm199798</Filter></hint><hint><Name>Commons Select Committee</Name><Filter></Filter></hint><hint><Name>International Development Committee</Name><Filter></Filter></hint></hints></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=202</id><title type='text'>Early day motion 251 - UK Parliament</title><updated>2017-12-14T11:43:11Z</updated><link title='www.parliament.uk/edm/print/1998-99/251' href='http://www.parliament.uk/edm/print/1998-99/251' /><content type='text'>Amendment 251A1 - BANANA TRADE;Amdt. line 1: Main content. Session: 1998-99; Date tabled: 10.03.1999; Primary sponsor: Fabricant, Michael Sponsors: Total number of ...</content><hints xmlns=''><hint><Name>Early Day Motion</Name><Filter>parliament.uk/edm</Filter></hint></hints></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=203</id><title type='text'>House of Commons - International Development - Written ...</title><updated>2017-12-14T11:43:11Z</updated><link title='https://publications.parliament.uk/pa/cm200203/cmselect/cmintdev/...' href='https://publications.parliament.uk/pa/cm200203/cmselect/cmintdev/400/400we06.htm' /><content type='text'>22. Memorandum submitted by the Caribbean Banana Exporters Association (CBEA) THE WTO DISPUTE ON BANANAS. 1. The CBEA has, since 1993, been involved in the dispute in ...</content><hints xmlns=''><hint><Name>Commons publication from session: 2002-03</Name><Filter>publications.parliament.uk/pa/cm200203</Filter></hint><hint><Name>Commons Select Committee</Name><Filter></Filter></hint><hint><Name>International Development Committee</Name><Filter></Filter></hint></hints></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=204</id><title type='text'>House of Commons Hansard Debates for 22 Mar 1999 (pt 23)</title><updated>2017-12-14T11:43:11Z</updated><link title='https://publications.parliament.uk/pa/cm199899/cmhansrd/vo990322/...' href='https://publications.parliament.uk/pa/cm199899/cmhansrd/vo990322/debtext/90322-23.htm' /><content type='text'>That this House deplores the failure of the USA and the EU to resolve the trade dispute arising from the so-called banana war; ...</content><hints xmlns=''><hint><Name>Commons publication from session: 1998-99</Name><Filter>publications.parliament.uk/pa/cm199899</Filter></hint><hint><Name>Commons Hansard</Name><Filter></Filter></hint><hint><Name>Commons Hansard transcript (Debating chambers)</Name><Filter></Filter></hint></hints></entry><entry><id>uuid:975cf1c2-a254-4822-a3ca-5dafb1df1cb1;id=205</id><title type='text'>Brexit and the UN Security Council - Commons Library ...</title><updated>2017-12-14T11:43:11Z</updated><link title='researchbriefings.parliament.uk/ResearchBriefing/Summary/CBP-7597' href='http://researchbriefings.parliament.uk/ResearchBriefing/Summary/CBP-7597' /><content type='text'>Brexit and the UN Security Council. Published Thursday, May 19, 2016. This Commons Library briefing paper looks at the competing arguments about the possible effects ...</content><hints xmlns=''><hint><Name>Research Briefings</Name><Filter>researchbriefings.parliament.uk</Filter></hint></hints></entry></feed>"
+    http_version: 
+  recorded_at: Thu, 14 Dec 2017 12:16:42 GMT
+recorded_with: VCR 3.0.3
