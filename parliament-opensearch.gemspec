@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr', '~> 3.0'
   spec.add_development_dependency 'webmock', '~> 2.3'
   spec.add_development_dependency 'parliament-ruby', '~> 0.7.4'
+  spec.add_development_dependency 'timecop'
 end

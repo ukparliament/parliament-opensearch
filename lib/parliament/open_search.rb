@@ -60,6 +60,7 @@ module Parliament
       def register_opensearch
         require 'parliament/open_search/version'
         require 'parliament/open_search/description_error'
+        require 'parliament/open_search/description_cache'
       end
 
       def register_opensearch_request

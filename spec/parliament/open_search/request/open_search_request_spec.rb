@@ -6,18 +6,20 @@ describe Parliament::Request::OpenSearchRequest, vcr: true do
       it 'sets @templates correctly when passed the description_url' do
         request = Parliament::Request::OpenSearchRequest.new(description_url: 'https://api.parliament.uk/Staging/search/description')
 
-        expect(request.templates).to eq({ url: [{ type: 'application/atom+xml',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'application/rss+xml',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'application/json',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'text/json',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'text/xml',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'application/xml',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' }] })
+        expect(request.templates).to eq([
+          { type: 'application/atom+xml',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'application/rss+xml',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'application/json',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'text/json',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'text/xml',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'application/xml',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' }
+        ])
       end
     end
 
@@ -26,19 +28,21 @@ describe Parliament::Request::OpenSearchRequest, vcr: true do
         Parliament::Request::OpenSearchRequest.description_url = 'https://api.parliament.uk/Staging/search/description'
         request = Parliament::Request::OpenSearchRequest.new
 
-        expect(Parliament::Request::OpenSearchRequest.description_url).to eq('https://api.parliament.uk/Staging/search/description')
-        expect(request.templates).to eq({ url: [{ type: 'application/atom+xml',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'application/rss+xml',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'application/json',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'text/json',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'text/xml',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' },
-                                                { type: 'application/xml',
-                                                  template: 'https://api.parliament.uk/Staging/search?q={searchTerms}&start={startPage?}&pagesize={count?}' }] })
+        expect(request.description_url).to eq('https://api.parliament.uk/Staging/search/description')
+        expect(request.templates).to eq([
+          { type: 'application/atom+xml',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'application/rss+xml',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'application/json',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'text/json',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'text/xml',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' },
+          { type: 'application/xml',
+            template: 'https://api-parliament-uk.azure-api.net/Staging/search?q={searchTerms}&start={startIndex?}&count={count?}' }
+        ])
       end
 
       it 'raises a Parliament::OpenSearch::DescriptionError if the description_url is an invalid format' do
@@ -80,23 +84,22 @@ describe Parliament::Request::OpenSearchRequest, vcr: true do
     it 'returns the correct data within the Feedjira Feed' do
       result = @request.get({ query: 'banana', start_page: '10' })
 
-      expect(result.entries.first.title).to eq('House of Commons Standing Committee (pt 4)')
-      expect(result.entries.first.summary).to include('I do not want to repeat all the elegant and witty remarks I made on the importance <br>
-of the <b>banana</b> in my life')
-      expect(result.entries.first.url).to eq('http://www.publications.parliament.uk/pa/cm199900/cmstand/euroa/st000404/00404s04.htm')
-      expect(result.totalResults).to eq('19100')
+      expect(result.entries.first.title).to eq('Trade dispute between the EU and the US over bananas')
+      expect(result.entries.first.content).to include('The Trade Dispute between the EU and the USA over Bananas ... “In respect of banana exports to the Community market, no ACP State shall be placed, ...')
+      expect(result.entries.first.url).to eq('http://researchbriefings.files.parliament.uk/documents/RP99-28/RP99-28.pdf')
+      expect(result.totalResults).to eq('354')
     end
 
     it 'sets the search parameters correctly - uses the defaults' do
       @request.get({ query: 'orange' })
 
-      expect(WebMock).to have_requested(:get, 'https://api.parliament.uk/Staging/search?pagesize=10&q=orange&start=1').once
+      expect(WebMock).to have_requested(:get, 'https://api-parliament-uk.azure-api.net/Staging/search?count=10&q=orange&start=1').once
     end
 
     it 'sets the search parameters correctly - uses the parameters passed in' do
       @request.get({ query: 'cherry', start_page: '20' })
 
-      expect(WebMock).to have_requested(:get, 'https://api.parliament.uk/Staging/search?pagesize=10&q=cherry&start=20').once
+      expect(WebMock).to have_requested(:get, 'https://api-parliament-uk.azure-api.net/Staging/search?count=10&q=cherry&start=1').once
     end
 
     it 'can accept a type and make a request to the correct url using the specified type' do
@@ -107,7 +110,7 @@ of the <b>banana</b> in my life')
                                                                builder: Parliament::Builder::OpenSearchResponseBuilder)
       new_request.get({ query: 'peach' }, type: 'application/rss+xml')
 
-      expect(WebMock).to have_requested(:get, 'https://api.parliament.uk/Staging/search?pagesize=10&q=peach&start=1').
+      expect(WebMock).to have_requested(:get, 'https://api-parliament-uk.azure-api.net/Staging/search?count=10&q=peach&start=1').
           with(:headers => {'Accept'=>['*/*', 'application/rss+xml']}).once
     end
 
