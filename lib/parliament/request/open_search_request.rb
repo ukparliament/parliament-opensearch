@@ -66,9 +66,7 @@ module Parliament
 
       private
 
-      def query_url
-        @query_url
-      end
+      attr_reader :query_url
 
       def setup_query_url(search_params, type = nil)
         search_terms = search_params[:query]

@@ -67,11 +67,13 @@ module Parliament
             raise Parliament::OpenSearch::DescriptionError.new(uri), "Invalid description URI passed '#{uri}': #{e.message}"
           end
 
+          headers = {
+              'Accept'                    => 'application/opensearchdescription+xml',
+              'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']
+          }
+          headers['Request-Id'] = "#{ENV['ApplicationInsights.request.id']}description-#{store.keys.length + 1}" if ENV['ApplicationInsights.request.id']
           request = Parliament::Request::BaseRequest.new(base_url: uri,
-                                                         headers:  {
-                                                             'Accept' => 'application/opensearchdescription+xml',
-                                                             'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']
-                                                         })
+                                                         headers:  headers)
           xml_response = request.get
 
           begin
