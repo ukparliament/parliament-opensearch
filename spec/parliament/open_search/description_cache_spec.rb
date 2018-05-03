@@ -46,7 +46,7 @@ describe Parliament::OpenSearch::DescriptionCache, vcr: true do
         expect(WebMock).to have_requested(:get, uri)
       end
 
-      context 'with the ApplicationInsight env variable set' do
+      context 'with a request_id value' do
         before :each do
           ENV['OPENSEARCH_AUTH_TOKEN'] = 'SECRET'
         end

@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://beta.parliament.uk/search/opensearch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/opensearchdescription+xml
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+      Request-Id:
+      - "|1234abcd.description-1"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 03 May 2018 13:46:21 GMT
+      Content-Type:
+      - application/opensearchdescription+xml; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dc3521b42cad0d3620904957120968c5d1525355181; expires=Fri, 03-May-19
+        13:46:21 GMT; path=/; domain=.parliament.uk; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - W/"cf9d475b9644b5b40e94501bf09802c7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - deffe709-be92-464e-be48-4bad6b99d5a3
+      X-Runtime:
+      - '0.001648'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 41532c5cafdb34a0-LHR
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+          <ShortName>UK Parliament</ShortName>
+          <Description>Search UK Parliament online content</Description>
+          <Image height="16" width="16" type="image/x-icon">http://beta.parliament.uk/favicon.ico</Image>
+          <Url type="text/html" template="http://beta.parliament.uk/search?q={searchTerms}&amp;start_index={startIndex?}&amp;count={count?}" />
+        </OpenSearchDescription>
+    http_version: 
+  recorded_at: Tue, 10 Apr 2018 15:00:00 GMT
+recorded_with: VCR 3.0.3
