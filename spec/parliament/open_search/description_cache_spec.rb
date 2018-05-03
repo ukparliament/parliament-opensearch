@@ -48,16 +48,11 @@ describe Parliament::OpenSearch::DescriptionCache, vcr: true do
 
       context 'with the ApplicationInsight env variable set' do
         before :each do
-          ENV['ApplicationInsights.request.id'] = '|1234abcd.'
           ENV['OPENSEARCH_AUTH_TOKEN'] = 'SECRET'
         end
 
-        after :each do
-          ENV.delete('ApplicationInsights.request.id')
-        end
-
         it 'includes a Request-Id header' do
-          expect(subject.fetch(uri)).to eq([{:type=>"text/html", :template=>"http://beta.parliament.uk/search?q={searchTerms}&start_index={startIndex?}&count={count?}"}])
+          expect(subject.fetch(uri, '|1234abcd.')).to eq([{:type=>"text/html", :template=>"http://beta.parliament.uk/search?q={searchTerms}&start_index={startIndex?}&count={count?}"}])
 
           expect(WebMock).to have_requested(:get, uri).with(headers: {'Accept'=>['*/*', 'application/opensearchdescription+xml'], 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Ocp-Apim-Subscription-Key'=>'SECRET', 'Request-Id'=>'|1234abcd.description-1', 'User-Agent'=>'Ruby'})
         end
