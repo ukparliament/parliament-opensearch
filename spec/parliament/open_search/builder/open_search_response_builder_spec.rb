@@ -19,16 +19,16 @@ describe Parliament::Builder::OpenSearchResponseBuilder, vcr: true do
     end
 
     it 'returns the correct data within the Feedjira Feed' do
-      expect(@search_response.entries.first.title).to eq('House of Commons - Documents considered by the Committee on ...')
-      expect(@search_response.entries.first.summary).to include('Dec 15, 2010 <b>...</b> 9.3 In that chapter, we also outlined the steps that the EU had taken')
-      expect(@search_response.entries.first.url).to eq('https://www.publications.parliament.uk/pa/cm201011/cmselect/cmeuleg/428/42811.htm')
-      expect(@search_response.totalResults).to eq('18600')
+      expect(@search_response.entries.first.title).to eq('Trade dispute between the EU and the US over bananas')
+      expect(@search_response.entries.first.content).to include('The Trade Dispute between the EU and the USA over Bananas ... “In respect of banana exports to the Community market, no ACP State shall be placed, ...')
+      expect(@search_response.entries.first.url).to eq('http://researchbriefings.files.parliament.uk/documents/RP99-28/RP99-28.pdf')
+      expect(@search_response.totalResults).to eq('351')
     end
 
     context 'hints' do
       it 'will return the correct type' do
-        expect(@search_response.entries.first.hint_types).to eq(["Type: PDF", "Research Briefings", "Research Briefings document", "Document reference number: RP99-28"])
-        expect(@search_response.entries.last.hint_types).to eq(['Research Briefings'])
+        expect(@search_response.entries.first.hint_types).to eq(['pdf', 'Research Briefings', 'Research Briefings document', 'Document reference number: RP99-28', 'Research Paper'])
+        expect(@search_response.entries.last.hint_types).to eq(['Research Briefings', 'Commons Briefing Paper'])
       end
 
       it 'will return multiple hints' do

@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://beta.parliament.uk/search/opensearch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/opensearchdescription+xml
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 10 Apr 2018 15:55:25 GMT
+      Content-Type:
+      - application/opensearchdescription+xml; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d44a24737457a0c3a3f166042e7034ee21523375725; expires=Wed, 10-Apr-19
+        15:55:25 GMT; path=/; domain=.parliament.uk; HttpOnly
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - W/"cf9d475b9644b5b40e94501bf09802c7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 42897204-375b-4169-b0ef-3a3aacb239c7
+      X-Runtime:
+      - '0.001638'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 409665cadcae3494-LHR
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+          <ShortName>UK Parliament</ShortName>
+          <Description>Search UK Parliament online content</Description>
+          <Image height="16" width="16" type="image/x-icon">http://beta.parliament.uk/favicon.ico</Image>
+          <Url type="text/html" template="http://beta.parliament.uk/search?q={searchTerms}&amp;start_index={startIndex?}&amp;count={count?}" />
+        </OpenSearchDescription>
+    http_version: 
+  recorded_at: Tue, 10 Apr 2018 15:00:00 GMT
+recorded_with: VCR 3.0.3

@@ -5,7 +5,7 @@ module Parliament
     # @since 0.1.0
     # attr [Hash] templates the different types and template urls set from the OpenSearch API description document.
     class OpenSearchRequest < Parliament::Request::BaseRequest
-      attr_reader :templates
+      attr_reader :templates, :description_url
 
       OPEN_SEARCH_PARAMETERS = {
         count:           10,
@@ -27,11 +27,11 @@ module Parliament
       # @param [Hash] headers the headers being sent in the request.
       # @param [Parliament::OpenSearch::Builder] builder the builder required to create the response.
       def initialize(description_url: nil, headers: nil, builder: nil)
-        @description_url = description_url
+        @description_url = description_url ||= self.class.description_url
 
         raise Parliament::OpenSearch::DescriptionError.new(@description_url), 'No description URL passed to Parliament::OpenSearchRequest#new and, no Parliament::OpenSearchRequest#base_url value set. Without a description URL, we are unable to make any search requests.' if @description_url.nil? && self.class.templates.nil?
 
-        @templates = Parliament::Request::OpenSearchRequest.get_description(@description_url) || self.class.templates
+        @templates = Parliament::OpenSearch::DescriptionCache.fetch(@description_url)
         @open_search_parameters = self.class.open_search_parameters
 
         super(base_url: nil, headers: headers, builder: builder)
@@ -49,8 +49,6 @@ module Parliament
         super(params: params)
       end
 
-      private
-
       # @attr [String] templates the different types and template urls set from the OpenSearch API description document.
       # @attr [Hash] open_search_parameters the possible parameters to use in the query url.
       class << self
@@ -58,56 +56,23 @@ module Parliament
 
         def description_url=(description_url)
           @description_url = description_url
-          @templates = Parliament::Request::OpenSearchRequest.get_description(@description_url)
+          @templates = Parliament::OpenSearch::DescriptionCache.fetch(@description_url)
         end
 
         def open_search_parameters
           OPEN_SEARCH_PARAMETERS.dup
         end
-
-        def get_description(url)
-          return if url.nil?
-
-          begin
-            URI.parse(url)
-          rescue URI::InvalidURIError => e
-            raise Parliament::OpenSearch::DescriptionError.new(url), "Invalid description URI passed '#{url}': #{e.message}"
-          end
-
-          request = Parliament::Request::BaseRequest.new(base_url: url,
-                                                         headers:  {
-                                                          'Accept' => 'application/opensearchdescription+xml',
-                                                          'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']
-                                                         })
-          xml_response = request.get
-
-          begin
-            xml_root = REXML::Document.new(xml_response.response.body).root
-            templates = { url: [] }
-            xml_root.elements.each('Url') do |url|
-              type = url.attributes['type']
-              template = url.attributes['template']
-              templates[:url] << { type: type, template: template }
-            end
-
-            raise Parliament::OpenSearch::DescriptionError.new(url), "The document found does not contain the required node. Attempted to get a 'Url' element with the attribute 'template'. Please check the description document at '#{url}' and try again." if templates[:url].empty?
-          rescue NoMethodError
-            raise Parliament::OpenSearch::DescriptionError.new(url), "The document found does not appear to be XML. Please check the description document at '#{url}' and try again."
-          end
-
-          templates
-        end
       end
 
-      def query_url
-        @query_url
-      end
+      private
+
+      attr_reader :query_url
 
       def setup_query_url(search_params, type = nil)
         search_terms = search_params[:query]
         type ||= 'application/atom+xml'
 
-        url_hash = @templates[:url].select { |url| url[:type] == type }.first
+        url_hash = @templates.select { |url| url[:type] == type }.first
 
         raise Parliament::OpenSearch::DescriptionError.new(type), "There is no url for the requested type '#{type}'." if url_hash.nil?
 
