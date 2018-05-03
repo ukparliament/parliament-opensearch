@@ -25,7 +25,7 @@ describe Parliament::Request::OpenSearchRequest, vcr: true do
 
     context 'with description_url set on the class' do
       it 'sets @description_url and @templates correctly when set on the class' do
-        Parliament::Request::OpenSearchRequest.description_url = 'https://api.parliament.uk/Staging/search/description'
+        Parliament::Request::OpenSearchRequest.configure_description_url('https://api.parliament.uk/Staging/search/description')
         request = Parliament::Request::OpenSearchRequest.new
 
         expect(request.description_url).to eq('https://api.parliament.uk/Staging/search/description')
@@ -46,11 +46,11 @@ describe Parliament::Request::OpenSearchRequest, vcr: true do
       end
 
       it 'raises a Parliament::OpenSearch::DescriptionError if the description_url is an invalid format' do
-        expect { Parliament::Request::OpenSearchRequest.description_url = 'not a valid URI!' }.to raise_error(Parliament::OpenSearch::DescriptionError, "Invalid description URI passed 'not a valid URI!': bad URI(is not URI?): not a valid URI!")
+        expect { Parliament::Request::OpenSearchRequest.configure_description_url('not a valid URI!') }.to raise_error(Parliament::OpenSearch::DescriptionError, "Invalid description URI passed 'not a valid URI!': bad URI(is not URI?): not a valid URI!")
       end
 
       it 'raises a Parliament::OpenSearch::DescriptionError if the description_url is not set on the class, or in the initializer' do
-        Parliament::Request::OpenSearchRequest.description_url = nil
+        Parliament::Request::OpenSearchRequest.configure_description_url(nil)
 
         expect{ Parliament::Request::OpenSearchRequest.new().base_url }.to raise_error(Parliament::OpenSearch::DescriptionError, 'No description URL passed to Parliament::OpenSearchRequest#new and, no Parliament::OpenSearchRequest#base_url value set. Without a description URL, we are unable to make any search requests.')
       end

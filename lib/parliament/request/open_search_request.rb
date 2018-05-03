@@ -26,12 +26,12 @@ module Parliament
       # @param [String] description_url the url for the OpenSearch API description file. (expected: http://example.com/description.xml - without the trailing slash).
       # @param [Hash] headers the headers being sent in the request.
       # @param [Parliament::OpenSearch::Builder] builder the builder required to create the response.
-      def initialize(description_url: nil, headers: nil, builder: nil)
+      def initialize(description_url: nil, headers: nil, builder: nil, request_id: nil)
         @description_url = description_url ||= self.class.description_url
 
         raise Parliament::OpenSearch::DescriptionError.new(@description_url), 'No description URL passed to Parliament::OpenSearchRequest#new and, no Parliament::OpenSearchRequest#base_url value set. Without a description URL, we are unable to make any search requests.' if @description_url.nil? && self.class.templates.nil?
 
-        @templates = Parliament::OpenSearch::DescriptionCache.fetch(@description_url)
+        @templates = Parliament::OpenSearch::DescriptionCache.fetch(@description_url, request_id)
         @open_search_parameters = self.class.open_search_parameters
 
         super(base_url: nil, headers: headers, builder: builder)
@@ -54,9 +54,9 @@ module Parliament
       class << self
         attr_reader :description_url, :templates
 
-        def description_url=(description_url)
+        def configure_description_url(description_url, request_id = nil)
           @description_url = description_url
-          @templates = Parliament::OpenSearch::DescriptionCache.fetch(@description_url)
+          @templates = Parliament::OpenSearch::DescriptionCache.fetch(@description_url, request_id)
         end
 
         def open_search_parameters
