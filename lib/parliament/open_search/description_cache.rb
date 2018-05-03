@@ -9,14 +9,15 @@ module Parliament
         # Given a description uri, either download the file or serve it from our cache
         #
         # @param [String] uri the uri of our description file
+        # @param [optional, String] request_id a Request-Id base value
         # @return [String] our description file
-        def fetch(uri)
+        def fetch(uri, request_id = nil)
           store
 
           if cache_valid?(store[uri])
             templates = @store[uri][:templates]
           else
-            templates = download_description_templates(uri)
+            templates = download_description_templates(uri, request_id)
 
             @store[uri] = { timestamp: Time.now, templates: templates }
           end
@@ -58,7 +59,7 @@ module Parliament
         #
         # @param [String] uri the uri of our certificates
         # @return [String] certificate data
-        def download_description_templates(uri)
+        def download_description_templates(uri, request_id = nil)
           return if uri.nil?
 
           begin
@@ -71,7 +72,7 @@ module Parliament
               'Accept'                    => 'application/opensearchdescription+xml',
               'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']
           }
-          headers['Request-Id'] = "#{ENV['ApplicationInsights.request.id']}description-#{store.keys.length + 1}" if ENV['ApplicationInsights.request.id']
+          headers['Request-Id'] = "#{request_id}description-#{store.keys.length + 1}" if request_id
           request = Parliament::Request::BaseRequest.new(base_url: uri,
                                                          headers:  headers)
           xml_response = request.get
