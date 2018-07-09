@@ -70,7 +70,8 @@ module Parliament
 
           headers = {
               'Accept'                    => 'application/opensearchdescription+xml',
-              'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN']
+              'Ocp-Apim-Subscription-Key' => ENV['OPENSEARCH_AUTH_TOKEN'],
+              'Api-Version'               => ENV['PARLIAMENT_API_VERSION']
           }
           headers['Request-Id'] = "#{request_id}description-#{store.keys.length + 1}" if request_id
           request = Parliament::Request::BaseRequest.new(base_url: uri,
