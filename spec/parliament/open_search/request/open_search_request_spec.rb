@@ -2,6 +2,60 @@ require_relative '../../../../spec/spec_helper'
 
 describe Parliament::Request::OpenSearchRequest, vcr: true do
   context 'initializing' do
+    context 'with no headers passed' do
+      original_env = nil
+
+      before :each do
+        original_env = ENV
+        ENV['OPENSEARCH_AUTH_TOKEN'] = 'abc123'
+        ENV['PARLIAMENT_API_VERSION'] = 'Staging'
+      end
+
+      after :each do
+        ENV = original_env
+      end
+
+      it 'starts with default headers' do
+        expect(Parliament::Request::OpenSearchRequest.new(description_url: 'https://api.parliament.uk/search/description').headers).to eq({ "Accept" => 'application/atom+xml', "Ocp-Apim-Subscription-Key" => 'abc123', "Api-Version" => 'Staging' })
+      end
+
+      context 'without optional environment variables=' do
+        original_env = nil
+
+        before :each do
+          original_env = ENV
+          ENV.delete('OPENSEARCH_AUTH_TOKEN')
+          ENV.delete('PARLIAMENT_API_VERSION')
+        end
+
+        after :each do
+          ENV = original_env
+        end
+
+        it 'starts with limited default headers' do
+          expect(Parliament::Request::OpenSearchRequest.new(description_url: 'https://api.parliament.uk/search/description').headers).to eq({ "Accept" => 'application/atom+xml' })
+        end
+      end
+    end
+
+    context 'with headers passed' do
+      original_env = nil
+
+      before :each do
+        original_env = ENV
+        ENV['OPENSEARCH_AUTH_TOKEN'] = 'abc123'
+        ENV['PARLIAMENT_API_VERSION'] = 'Staging'
+      end
+
+      after :each do
+        ENV = original_env
+      end
+
+      it 'overwrites default values' do
+        expect(Parliament::Request::OpenSearchRequest.new(description_url: 'https://api.parliament.uk/search/description', headers: { "Accept" => 'Foo', "Ocp-Apim-Subscription-Key" => 'Bar', "Api-Version" => 'Baz' }).headers).to eq({ "Accept" => 'Foo', "Ocp-Apim-Subscription-Key" => 'Bar', "Api-Version" => 'Baz' })
+      end
+    end
+
     context 'with @templates set in the #initialize method' do
       it 'sets @templates correctly when passed the description_url' do
         request = Parliament::Request::OpenSearchRequest.new(description_url: 'https://api.parliament.uk/Staging/search/description')
