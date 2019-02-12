@@ -11,11 +11,8 @@
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-This gem is currently not available on RubyGems. To use it in an application, install it directly from GitHub via your Gemfile
 ```bash
-gem 'parliament-opensearch', git: 'https://github.com/ukparliament/parliament-opensearch.git', branch: 'master'
+gem 'parliament-opensearch'
 ```
 
 You will also need to include the parliament-ruby gem.  Add the following to your Gemfile:
